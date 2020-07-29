@@ -1,0 +1,42 @@
+---
+# Set up some cool docker containers
+
+- name: Setting docker variables
+  set_fact:
+    timezone: "America/New_York"
+
+- name: Ensure python-docker SDK is installed - Debian.
+  package:
+    name: python3-docker
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure python-docker SDK is installed via pip - RedHat.
+  pip:
+    name: docker
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Create docker container portainer
+  docker_container:
+    name: portainer
+    image: "portainer/portainer"
+    ports:
+      - "9000:9000"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "portainer_data:/data"
+    restart_policy: unless-stopped
+
+- name: Create docker container smokeping
+  docker_container:
+    name: smokeping
+    image: "linuxserver/smokeping"
+    ports:
+      - "8080:80"
+    env: 
+      TZ: "{{ timezone }}"
+    volumes:
+      - "~/smokeping/config:/config"
+      - "~/smokeping:/data"
+    restart_policy: unless-stopped

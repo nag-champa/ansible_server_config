@@ -1,0 +1,12 @@
+[Interface]
+Address = 10.20.20.1/24
+SaveConfig = false
+ListenPort = 51820
+#FwMark = 0xca6c
+PrivateKey = Place-wg-private-key-here
+
+[Peer]
+## Wirguard Peer ##
+PublicKey = Peer-Public-Key
+AllowedIPs = 192.168.50.0/24,10.20.20.2/24,10.100.100.0/24
+Endpoint = 1.2.3.4:51820

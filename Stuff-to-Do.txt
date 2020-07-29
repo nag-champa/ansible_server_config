@@ -1,0 +1,16 @@
+#Readme
+
+More things to do with ansible
+	change or randomize root password
+	set passwords for default admin users
+	change default umask
+	remove ubuntu account - for rasberry pi builds - added to users playbook!
+	fix wheel and sudo groups for admin users - complete!
+	Deploy docker containers - in progress
+	Post something to github
+	
+
+Docker containers
+Smokeping
+Duplicati
+Portainer

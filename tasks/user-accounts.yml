@@ -1,0 +1,39 @@
+---
+
+# Create and manage default user & group accounts
+
+  - name: Include user account variables.
+    include_vars: "../vars/user-accounts.yml"
+
+  - name: Add specified groups.
+    group:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ add_groups }}"
+    when: add_groups | length > 0
+
+  - name: Add specified users to sudo or wheel group.
+    user:
+      name: "{{ item }}"
+      shell: /bin/bash
+      groups: "{{ sudo_group }}"
+      append: true
+    loop: "{{ admin_users }}"
+    when: admin_users | length > 0
+ 
+  - name: Remove unwanted user accounts.
+    user:
+      name: "{{ item }}"
+      state: absent
+    loop: "{{ rm_users }}"
+    when: rm_users | length > 0
+    
+  - name: Copy ssh key for admin users.
+    authorized_key:
+      user: "{{ item }}"
+      state: present
+      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+    loop: "{{ admin_users }}"
+    when: admin_users | length > 0
+
+  

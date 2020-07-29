@@ -1,0 +1,24 @@
+---
+
+#Setting up server environment
+
+- name: Initial Server Setup.
+  hosts: new
+  #gather_facts: false
+  become: true
+
+  tasks:
+
+  - name: Set general server configurations.
+    include_tasks: base-config.yml  
+
+  - name: Configure User and Group accounts.
+    include_tasks: user-accounts.yml  
+
+  - name: Configure Docker Containers on Docker hosts.
+    include: docker-containers.yml
+
+  roles:
+    - role: ansible_role_packages
+    - role: geerlingguy.security
+    - role: geerlingguy.docker

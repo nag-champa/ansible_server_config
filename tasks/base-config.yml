@@ -1,0 +1,20 @@
+---
+
+#Base Configuration
+
+- name: Set timezone to America/New_York.
+  timezone:
+    name: America/New_York    
+
+- name: Copy wireguard configuration template to /etc/wireguard.
+  copy:
+    src: "../files/wireguard-conf-template"
+    dest: "/etc/wireguard"
+    owner: root
+    mode: 0600   
+
+- name: Setup ssmtp mta & bsd-mail utils for outbound email.
+  include_role: 
+    name: ansible_role_ssmtp
+  when:
+    - ansible_os_family == 'Debian' 

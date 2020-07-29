@@ -1,0 +1,33 @@
+---
+
+- name: Make sure Docker Containers are running.
+  hosts: new
+  gather_facts: false
+  become: true
+  
+  vars:
+    - timezone: "America/New_York"
+
+  tasks:
+    - name: Create docker container portainer
+      docker_container:
+        name: portainer
+        image: "portainer/portainer"
+        ports:
+          - "9000:9000"
+        volumes:
+          - "/var/run/docker.sock:/var/run/docker.sock"
+          - "portainer_data:/data"
+          
+    - name: Create docker container smokeping
+      docker_container:
+        name: smokeping
+        image: "linuxserver/smokeping"
+        ports:
+          - "8080:80"
+        env: 
+          TZ: "{{ timezone }}"
+        volumes:
+          - "~/smokeping/config:/config"
+          - "~/smokeping:/data"
+        restart_policy: unless-stopped

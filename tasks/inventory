@@ -1,0 +1,19 @@
+# Inventory File
+
+[all_servers]
+ubuntu-1 ansible_host=10.20.20.1 
+nas ansible_host=192.168.50.20 
+
+[all_servers:vars]
+ansible_user=scott
+
+[pi4]
+nas
+
+[droplets]
+ubuntu-1
+ubuntu-2
+
+[new]
+centos-1 ansible_host=165.227.81.137 ansible_user=deploy
+ubuntu-2 ansible_host=167.172.148.62 ansible_user=deploy

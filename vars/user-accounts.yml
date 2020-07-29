@@ -1,0 +1,15 @@
+---
+# User & group variables
+
+
+sudo_group: "{{ 'sudo' if ansible_os_family == 'Debian' else 'wheel' }}"
+
+# Add groups
+add_groups: []
+
+# Add admin user accounts - users to add to sudo or wheel group
+admin_users: [scott,deploy]
+  
+# Remove user accounts
+rm_users: [centos,ubuntu]
+  
