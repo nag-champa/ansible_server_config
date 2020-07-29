@@ -12,3 +12,11 @@ As of now, the playbook does the following..
 5) Invokes a role from @Geerlingguy for some security configuration of ssh and automatic updates.
 6) Invokes a role from @Geerlingguy to install docker.
 7) Sets up a few docker containers i've been experimenting with. (probably will break this out to it's own role)
+
+Testing
+I've tested this role on Ubuntu 20.04 and Centos 8.2 using DO droplets.
+
+
+Stuff I'd like to do in the future
+Clean up some of the variables to make it more generic and reusable.
+Add more docker containers.
