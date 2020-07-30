@@ -1,10 +1,13 @@
 # ansible_server_config
+-----------------------
 
-This is my first ansible playbook upload.  This playbook is an intitial configuration of a Linux server after first boot.  
+This is my first ansible playbook upload.  
+- This playbook is an intitial configuration of a Linux server after first boot.  
 
 My goals is to learn how to use ansible while fully automating the build of my home lab.
 
 As of now, the playbook does the following..
+--------------------------------------------
 1) Updates application packages to latest.
 2) Installs some of my most used packages.
 3) Sets up default user & group accounts.
@@ -14,9 +17,11 @@ As of now, the playbook does the following..
 7) Sets up a few docker containers i've been experimenting with. (probably will break this out to it's own role)
 
 Testing
-I've tested this role on Ubuntu 20.04 and Centos 8.2 using DO droplets.
+-------
+- I've tested this role on Ubuntu 20.04 and Centos 8.2 using DO droplets.
 
 
 Stuff I'd like to do in the future
-Clean up some of the variables to make it more generic and reusable.
-Add more docker containers.
+----------------------------------
+- Clean up some of the variables to make it more generic and reusable.
+- Add more docker containers.
