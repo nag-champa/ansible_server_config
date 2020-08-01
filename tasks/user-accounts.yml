@@ -32,7 +32,7 @@
     authorized_key:
       user: "{{ item }}"
       state: present
-      key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+      key: "{{ lookup('file', '../files/ansible-key.pub') }}"
     loop: "{{ admin_users }}"
     when: admin_users | length > 0
 
