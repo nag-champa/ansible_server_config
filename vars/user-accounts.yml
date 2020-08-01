@@ -2,7 +2,8 @@
 # User & group variables
 
 
-sudo_group: "{{ 'sudo' if ansible_os_family == 'Debian' else 'wheel' }}"
+#sudo_group: "{{ 'sudo' if ansible_os_family == 'Debian' else 'wheel' }}"
+sudo_group: "{{ 'sudo' if ansible_os_family == 'Debian' else 'wheel' if ansible_os_family == 'RedHat' }}"
 
 # Add groups
 add_groups: []
