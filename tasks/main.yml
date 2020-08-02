@@ -3,7 +3,7 @@
 #Setting up server environment
 
 - name: Initial Server Setup.
-  hosts: new
+  hosts: ansible_test
   #gather_facts: false
   become: true
 

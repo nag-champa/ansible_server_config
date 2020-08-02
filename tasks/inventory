@@ -1,10 +1,11 @@
 # Inventory File
 
-[all_servers:vars]
-ansible_user=scott
-
-[all_servers]
+[homelab_prod]
 ubuntu-1.lan
+nas.lan
+
+[homelab_prod:vars]
+ansible_user=scott
 
 [pi4]
 nas.lan
@@ -13,6 +14,9 @@ nas.lan
 ubuntu-1
 ubuntu-2
 
-[new]
-centos-1 ansible_host=157.245.131.238 ansible_user=root
-#ubuntu-2 165.227.195.16 ansible_user=deploy
+[ansible_test]
+#centos-1 ansible_host=157.245.131.238
+ubuntu-2 ansible_host=64.227.24.173
+
+[ansible_test:vars]
+ansible_user=root
