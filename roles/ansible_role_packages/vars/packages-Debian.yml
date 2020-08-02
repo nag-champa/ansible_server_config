@@ -1,0 +1,12 @@
+---
+
+#Debian Packages
+
+my_packages:
+  - htop
+  - neofetch
+  - wireguard-tools
+  - iperf3
+  - vim
+  - bat
+  - tree

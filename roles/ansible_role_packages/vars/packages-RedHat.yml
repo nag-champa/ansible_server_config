@@ -1,0 +1,11 @@
+---
+
+#Redhat Packages
+
+my_packages:
+  - htop
+  - wireguard-tools
+  - iperf3
+  - vim
+  - tree
+  - neofetch

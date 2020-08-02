@@ -1,0 +1,20 @@
+---
+# Tasks to install & configure ssmtp & bsd_mail utils for "lightweight" outbound email
+
+- name: Include Variables.
+  include_vars: secret.yml
+
+- name: Ensure ssmtp & bsd-mailx packages are installed.
+  package:
+    name: ssmtp, bsd-mailx
+    state: latest
+  
+- name: "Copy ssmtp.conf template to {{ ssmtp_config_dir }}/{{ ssmtp_config_file }} and set permissions."
+  template:
+    src: "ssmtp.conf.j2"
+    dest: "{{ ssmtp_config_dir }}/{{ ssmtp_config_file }}"
+    owner: root
+    group: mail
+    mode: '0640'
+    backup: true
+    #validate: 'echo "Testing ssmtp mta is working correctly." | mail -r scottsigl@gmail.com -s "SSMTP Validation" scottsigl@gmail.com %s'

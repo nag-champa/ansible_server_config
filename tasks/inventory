@@ -19,4 +19,4 @@ ubuntu-2
 ubuntu-2 ansible_host=64.227.24.173
 
 [ansible_test:vars]
-ansible_user=root
+ansible_user=deploy

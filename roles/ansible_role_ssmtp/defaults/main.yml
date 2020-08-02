@@ -1,0 +1,8 @@
+---
+# defaults file for ssmtp
+
+smtp_mta_user: "someone@somedomain.com"
+smtp_mta_relay_host: "smtprelayhost:587"
+smtp_mta_password: "smtp-password"
+ssmtp_config_dir: "/etc/ssmtp"
+ssmtp_config_file: "ssmtp.conf"
